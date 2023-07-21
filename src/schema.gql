@@ -1,0 +1,65 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Book2 {
+  title: String!
+  description: String!
+  price: Int!
+  purchase: Int!
+  authorid: String!
+}
+
+type Author2 {
+  name: String!
+  _id: String!
+  age: Int!
+  profession: String!
+  BookList: [Book2!]!
+}
+
+type User2 {
+  name: String!
+  email: String!
+  password: String!
+  privateKey: String
+}
+
+type Query {
+  getAllUsers: [User2!]!
+  findOneUser(username: String!): User2!
+  getAllBooks: [Book2!]!
+  findBookById(id: String!): Book2!
+  authors: [Author2!]!
+  getBookInAuthor: [Author2!]!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): User2!
+  login(email: String!, password: String!): String!
+  addBook(addBook: CreateBookArgs!): Book2!
+  UpdateBook(id: String!, updatebook: CreateBookArgs!): Book2!
+  deleteBook(id: String!): Book2!
+  createauthor(CreateAuthorArgs: CreateAuthorArgs!): Author2!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  privateKey: String!
+}
+
+input CreateBookArgs {
+  title: String!
+  description: String!
+  price: Float!
+  purchase: Float!
+  authorid: String!
+}
+
+input CreateAuthorArgs {
+  name: String!
+  age: Int!
+  profession: String!
+}
